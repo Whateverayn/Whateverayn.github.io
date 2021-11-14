@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script src="in.js"></script>
+    <script src="https://code.jquery.com/jquery-3.x.x.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="in.js"></script>
+    <script>
+      function test() {
+        navigator.geolocation.getCurrentPosition(test2);
+      }
+
+      function test2(position) {
+        var geo_text = "緯度:" + position.coords.latitude + "<br>";
+        geo_text += "経度:" + position.coords.longitude + "<br>";
+        geo_text += "高度:" + position.coords.altitude + "<br>";
+        geo_text += "位置精度:" + position.coords.accuracy + "<br>";
+        geo_text += "高度精度:" + position.coords.altitudeAccuracy  + "<br>";
+        geo_text += "移動方向:" + position.coords.heading + "<br>";
+        geo_text += "速度:" + position.coords.speed + "<br>";
+        var date = new Date(position.timestamp);
+        geo_text += "取得時刻:" + date.toLocaleString() + "<br>";
+
+        try {
+	        Thread.sleep(5000); // 10秒(1万ミリ秒)間だけ処理を止める
+        } catch (InterruptedExceptione) {
+        }
+
+        som.innerHTML = geo_text;
+
+        //document.write(geo_text);
+          test()
+      }
+    </script>
 </head>
-<body>
-    <p>あなたはいま</p>
-<p id="loc" class="position"></p>
-<p>の場所にいます。ちなみに精度は半径 <span id="accuracy" class="position"></span> mです。</p>
-</body>
+<body onload="test()">
+  <div id="som"></div>
 </html>
