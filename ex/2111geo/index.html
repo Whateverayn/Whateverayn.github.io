@@ -25,14 +25,29 @@
         geo_text += "取得時刻:" + date.toLocaleString() + "<br>";
 
         som.innerHTML = geo_text;
+        pud.innerHTML = pus.innerHTML
+        pus.innerHTML = "";
 
    //     document.write(geo_text);
           test();
       }
       function a_b () {
-        som.innerHTML = "<b>A</b>:<b>青</b>";
-        test();
+        var aba = "<b>A</b>:<b>青</b>";
+        pus.innerHTML = aba;
       }
+      function a_r () {
+        var aba = "<b>A</b>:<b>赤</b>";
+        pus.innerHTML = aba;
+      }
+      function b_b () {
+        var aba = "<b>B</b>:<b>青</b>";
+        pus.innerHTML = aba;
+      }
+      function b_r () {
+        var aba = "<b>B</b>:<b>赤</b>";
+        pus.innerHTML = aba;
+      }
+
     </script>
     <style>
       body{
@@ -42,13 +57,20 @@
     </style>
 </head>
 <body onload="test()">
+  <div id=pus></div>
   <div id="som"></div>
   <div>
     <div>
       交差点A
-      <button onclick="a_b()">青</button>
-      <button>赤</button>
-      
+      <button onclick='a_b()'>青</button>
+      <button onclick="a_r()">赤</button>
     </div>
+    <div>
+      交差点B
+      <button onclick='b_b()'>青</button>
+      <button onclick="b_r()">赤</button>
+    </div>
+
   </div>
+  <div id="pud"></div>
 </html>
