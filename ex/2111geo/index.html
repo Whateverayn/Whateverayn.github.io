@@ -24,18 +24,14 @@
         var date = new Date(position.timestamp);
         geo_text += "取得時刻:" + date.toLocaleString() + "<br>";
 
-        try {
-	        Thread.sleep(1000); // 10秒(1万ミリ秒)間だけ処理を止める
-        } catch (InterruptedExceptione) {
-        }
-
         som.innerHTML = geo_text;
 
    //     document.write(geo_text);
-          test()
+          test();
       }
       function a_b () {
         som.innerHTML = "<b>A</b>:<b>青</b>";
+        test();
       }
     </script>
     <style>
